@@ -1,1 +1,1 @@
-web: gunicorn billing_project.wsgi
+web: gunicorn billing_backend.wsgi
