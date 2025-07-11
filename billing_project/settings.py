@@ -142,4 +142,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 CORS_ALLOWED_ORIGINS = [
     "https://pos-billing-software.netlify.app",
+    "https://pos-billing-software.web.app",
+    "https://pos-billing-software.com",
+    "https://pos-billing-software.vercel.app",
+
 ]
