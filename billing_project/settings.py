@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-2c+r+xfbge=ocq3ue#o*jcihk@4z+$$6900_t*50g$^dha)*68
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'pos-and-billing-software.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -87,29 +91,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'billing_project.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'billing_db'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'Aditya@0411'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+    }
+}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'billing_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Aditya@0411',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
-    }
-}
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
