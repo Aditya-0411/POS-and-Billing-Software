@@ -1,0 +1,24 @@
+<!-- templates/invoice_template.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Invoice</title></head>
+<body>
+  <h1>Invoice #{{ invoice.id }}</h1>
+  <p><strong>Customer:</strong> {{ invoice.customer.name }}</p>
+  <p><strong>Date:</strong> {{ invoice.created_at }}</p>
+  <p><strong>Total:</strong> ₹{{ invoice.total }}</p>
+  <!-- Loop through items -->
+  <table>
+    <thead><tr><th>Product</th><th>Qty</th><th>Price</th></tr></thead>
+    <tbody>
+      {% for item in invoice.items.all %}
+        <tr>
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.price }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
